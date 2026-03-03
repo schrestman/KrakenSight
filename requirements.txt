@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+requests
+wand
+apscheduler
+liquidctl
+pydantic-settings
+psutil

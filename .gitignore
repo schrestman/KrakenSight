@@ -1,0 +1,5 @@
+__pycache__
+GEMINI.md
+tmp/
+venv/
+config/config.json

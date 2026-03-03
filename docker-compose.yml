@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  kraken-daemon:
+    build: .
+    container_name: kraken-display-daemon
+    restart: unless-stopped
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./config:/app/config
+      - ./app:/app/app # Live reload for development
+      - ./tmp:/tmp
+    # Needed for liquidctl to access the USB device
+    privileged: true
+    pid: "host"
+    # Alternatively, you can map the specific USB device:
+    # devices:
+    #   - /dev/bus/usb:/dev/bus/usb
+    environment:
+      - PYTHONUNBUFFERED=1

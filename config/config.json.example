@@ -1,0 +1,118 @@
+{
+    "display_interval": 10,
+    "default_background": "xc:black",
+    "default_font_dir": "/usr/share/fonts/truetype/dejavu/",
+    "default_font": "DejaVuSans-Bold.ttf",
+    "default_font_color": "white",
+    "default_effect_type": "shadow",
+    "default_effect_color": "black",
+    
+    "enabled_modules": [
+        "weather_home", 
+        "grafana_network", 
+        "host_stats", 
+        "cooler_stats",
+        "analog_clock", 
+        "ai_sassy_greeting", 
+        "random_image"
+    ],
+    
+    "weather_home": {
+        "type": "weather",
+        "api_key": "YOUR_OPENWEATHERMAP_API_KEY",
+        "city": "London",
+        "update_interval_minutes": 60,
+        "duration": 15,
+        "titles": [
+            {"text": "Local Weather", "position": "top"},
+            {"text": "London, UK", "position": "bottom"}
+        ],
+        "background_image": "xc:gray"
+    },
+    
+    "grafana_network": {
+        "type": "grafana",
+        "url": "http://your-grafana-ip:3000",
+        "api_key": "YOUR_GRAFANA_SERVICE_ACCOUNT_TOKEN",
+        "dashboard_uid": "xyz123",
+        "panel_id": 2,
+        "from": "now-6h",
+        "to": "now",
+        "duration": 10,
+        "titles": [
+            {"text": "Network Traffic", "position": "top"}
+        ],
+        "background_image": "/root/.backgrounds/Solid_Orange.jpg"
+    },
+    
+    "host_stats": {
+        "type": "sysstats",
+        "duration": 5,
+        "title_font_size": 45,
+        "text_font_size": 40,
+        "font_color": "yellow",
+        "effect_type": "border",
+        "effect_color": "blue",
+        "titles": [
+            {"text": "Host Metrics", "position": "top"}
+        ],
+        "format": [
+            "CPU: {cpu_percent}%",
+            "RAM Used: {ram_used_gb}/{ram_total_gb} GB",
+            "Disk: {disk_used_gb}/{disk_total_gb} GB",
+            "({disk_percent}% Full)"
+        ],
+        "background_image": "xc:black"
+    },
+    
+    "cooler_stats": {
+        "type": "liquidctl",
+        "duration": 5,
+        "title_font_size": 45,
+        "text_font_size": 40,
+        "titles": [
+            {"text": "Cooler Status", "position": "top"}
+        ],
+        "format": [
+            "Liquid: {liquid_temperature}°C",
+            "Pump: {pump_speed} RPM",
+            "Fan: {fan_speed} RPM"
+        ],
+        "background_image": "xc:blue"
+    },
+    
+    "analog_clock": {
+        "type": "clock",
+        "clock_type": "analog",
+        "timezone": "America/Chicago",
+        "use_24h": false,
+        "duration": 5,
+        "font_color": "cyan",
+        "titles": [
+            {"text": "Local Time", "position": "top"}
+        ],
+        "background_image": "xc:black"
+    },    
+    "ai_sassy_greeting": {
+        "type": "ollama",
+        "url": "http://172.17.0.1:11434/api/generate",
+        "model": "llama3",
+        "prompt": "You are a sassy AI inside a computer case. It is currently {weather_desc} and {temp} degrees outside. My CPU is at {cpu_percent}%. Give me a 1 sentence witty thought or greeting. Keep it under 20 words.",
+        "update_interval_minutes": 10,
+        "duration": 15,
+        "text_font_size": 35,
+        "titles": [
+            {"text": "AI Insight", "position": "top"}
+        ],
+        "background_image": "xc:purple"
+    },
+    
+    "random_image": {
+        "type": "image",
+        "url": "https://picsum.photos/640/640",
+        "duration": 10,
+        "titles": [
+            {"text": "Random Image", "position": "bottom"}
+        ]
+    }
+}
